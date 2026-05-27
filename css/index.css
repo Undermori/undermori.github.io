@@ -3892,6 +3892,7 @@ h1.page-title + .tag-cloud-list {
   cursor: pointer;
 }
 #article-container {
+  font-size: 19px;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
