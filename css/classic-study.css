@@ -57,6 +57,7 @@ body {
 body {
   font-size: 16px;
   line-height: 1.75;
+  font-synthesis: style;
 }
 
 #web_bg {
@@ -120,7 +121,7 @@ select:focus-visible {
 #nav .site-name,
 #aside-content .author-info__name,
 #aside-content .author-info__description {
-  font-family: 'Noto Serif SC', 'Songti SC', SimSun, 'Times New Roman', serif;
+  font-family: 'Blog Noto Serif SC', serif;
   letter-spacing: 0;
 }
 
@@ -267,7 +268,7 @@ select:focus-visible {
 
 #recent-posts .recent-post-info > .article-title {
   color: var(--text-primary);
-  font-family: 'Noto Serif SC', 'Songti SC', SimSun, 'Times New Roman', serif;
+  font-family: 'Blog Noto Serif SC', serif;
   font-size: 1.72em;
   font-weight: 600;
   line-height: 1.45;
@@ -410,7 +411,7 @@ select:focus-visible {
 #aside-content .item-headline {
   padding-bottom: 12px;
   color: var(--text-primary);
-  font-family: 'Noto Serif SC', 'Songti SC', SimSun, 'Times New Roman', serif;
+  font-family: 'Blog Noto Serif SC', serif;
   font-size: 1.06em;
   border-bottom: 1px solid var(--border-color);
 }
@@ -550,7 +551,7 @@ select:focus-visible {
 #post .post-title,
 #page h1 {
   color: var(--text-primary);
-  font-family: 'Noto Serif SC', 'Songti SC', SimSun, 'Times New Roman', serif;
+  font-family: 'Blog Noto Serif SC', serif;
   font-weight: 600;
   letter-spacing: 0;
 }
@@ -827,7 +828,7 @@ select:focus-visible {
 #pagination.pagination-post .prev_info,
 #pagination.pagination-post .next_info {
   color: var(--text-primary);
-  font-family: 'Noto Serif SC', 'Songti SC', SimSun, 'Times New Roman', serif;
+  font-family: 'Blog Noto Serif SC', serif;
 }
 
 #pagination.pagination-post a:hover .prev_info,
@@ -843,7 +844,7 @@ select:focus-visible {
 
 .relatedPosts > .headline {
   color: var(--text-primary);
-  font-family: 'Noto Serif SC', 'Songti SC', SimSun, 'Times New Roman', serif;
+  font-family: 'Blog Noto Serif SC', serif;
 }
 
 .relatedPosts > .headline i {
@@ -889,7 +890,7 @@ select:focus-visible {
 .category-title,
 .tag-title {
   color: var(--text-primary);
-  font-family: 'Noto Serif SC', 'Songti SC', SimSun, 'Times New Roman', serif;
+  font-family: 'Blog Noto Serif SC', serif;
 }
 
 .article-sort-item::before,
