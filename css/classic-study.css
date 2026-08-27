@@ -99,7 +99,8 @@ select:focus-visible {
   background-color: var(--bg-primary);
 }
 
-#page-header.full_page::after {
+#page-header.full_page::after,
+#page-header.post-bg::after {
   position: absolute;
   right: 0;
   bottom: -1px;
@@ -112,7 +113,8 @@ select:focus-visible {
 }
 
 #page-header.full_page #site-info,
-#page-header.full_page #scroll-down {
+#page-header.full_page #scroll-down,
+#page-header.post-bg #post-info {
   z-index: 2;
 }
 
@@ -138,9 +140,21 @@ select:focus-visible {
 }
 
 #page-header #scroll-down .scroll-down-effects {
-  animation: none;
+  animation: classic-scroll-pulse 1.8s ease-in-out infinite;
   color: var(--text-muted);
   opacity: 0.58;
+  will-change: opacity;
+}
+
+@keyframes classic-scroll-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.78;
+  }
 }
 
 #nav {
@@ -339,6 +353,12 @@ select:focus-visible {
 
 #aside-content .avatar-img img,
 #aside-content .avatar-img img:hover {
+  transform: none;
+}
+
+#sidebar-menus > .avatar-img img,
+#sidebar-menus > .avatar-img img:hover {
+  transition: filter 375ms ease-in 0.2s;
   transform: none;
 }
 
@@ -1012,7 +1032,8 @@ select:focus-visible {
     padding: 0 18px;
   }
 
-  #page-header.full_page::after {
+  #page-header.full_page::after,
+  #page-header.post-bg::after {
     height: 128px;
   }
 
