@@ -222,6 +222,10 @@ select:focus-visible {
   order: 5;
 }
 
+#nav:not(.hide-menu) #menus > .menus_items > .menus_item:nth-child(5) {
+  order: 6;
+}
+
 #nav:not(.hide-menu) #search-button i {
   display: none;
 }
