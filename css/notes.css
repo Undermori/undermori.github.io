@@ -31,9 +31,10 @@
 .notes-images--1 { max-width: 420px; }
 #notes-feed #article-container .notes-images img { display: block; width: 100%; height: auto; max-height: none; aspect-ratio: auto; object-fit: contain; margin: 0; }
 #notes-feed .notes-metadata { justify-content: space-between; }
-#notes-feed .notes-item { grid-template-columns: minmax(0, 1fr); gap: 12px; }
-#notes-feed .notes-footer { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; margin-top: 12px; }
-#notes-feed .notes-footer:empty { display: none; }
+.notes-home-footer, #notes-feed .notes-footer { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; margin-top: 12px; }
+.notes-home-footer { margin-top: 6px; }
+.notes-home-footer .notes-tags, #notes-feed .notes-footer .notes-tags { margin-top: 0; }
+.notes-home-footer:empty, #notes-feed .notes-footer:empty { display: none; }
 .notes-response, .notes-home-response { margin-left: auto; padding: 0; background: transparent; border: 0; color: var(--text-muted); font: 400 13px/1.85 'Blog Noto Sans SC', sans-serif; cursor: pointer; }
 .notes-response:hover, .notes-home-response:hover { color: var(--accent-hover); }
 .notes-home-response[hidden], .notes-comment[hidden], .notes-comment.no-comment { display: none; }

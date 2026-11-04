@@ -1,7 +1,7 @@
 /* Restore selectors and spacing changed by Butterfly 5.x. */
 .is-center { text-align: center; }
 #aside-content .card-categories ul.card-category-list > .card-category-list-item a,
-#aside-content .card-archives ul.card-archive-list > .card-archive-list-item a { margin: 0; padding: 3px 10px; }
+#aside-content .card-archives ul.card-archive-list > .card-archive-list-item a { margin: 0; padding: 6px 8px; }
 #aside-content .card-tag-cloud a { line-height: 1.75; }
 #page-header #post-info { bottom: 30px; padding: 0 8%; }
 #page-header #post-info > * { padding: 0; max-width: none; margin: 0; }
@@ -18,14 +18,13 @@
 #sidebar #sidebar-menus .menus_items .site-page { margin: 0; padding: 3px 28px 3px 20px; border-radius: 6px; }
 #sidebar #sidebar-menus .menus_items .site-page:hover { transform: none; box-shadow: none; color: var(--font-color); }
 * { scrollbar-width: thin; scrollbar-color: #524b43 transparent; }
-#article-container.post-content hr { margin: 40px 0; border: 2px dashed var(--border-color); }
+#article-container.post-content hr, .custom-hr, .search-dialog hr { margin: 32px 0; border: 0; border-top: 1px solid var(--border-color-light); }
 [data-theme='dark'] .tag-cloud-list > a { filter: none; }
-[data-theme='dark'] img.cover { filter: brightness(.8); }
-[data-theme='dark'] img:not(.cover) { filter: brightness(.8); }
-[data-theme='dark'] #recent-posts .post_cover img { filter: brightness(.8); z-index: auto; }
-#aside-content .aside-list .aside-list-item .thumbnail { width: 4.2em; height: 4.2em; }
-#aside-content .aside-list .aside-list-item .content > .title,
-#aside-content .aside-list .aside-list-item .content > .comment { font-size: 95%; }
+[data-theme='dark'] img:not(.cover) { filter: none; }
+[data-theme='dark'] #recent-posts .post_cover img { filter: none; z-index: auto; }
+[data-theme='dark'] #recent-posts > .recent-post-item:hover .post_cover .post-bg,
+[data-theme='dark'] #recent-posts > .recent-post-item .post_cover .post-bg:hover { filter: brightness(0.9) saturate(0.86); }
+[data-theme='dark'] #aside-content .aside-list > .aside-list-item:not(:last-child) { border-bottom: 1px solid var(--border-color); }
 .tag-cloud-list, .tag-cloud-title { animation: none; }
 #aside-content .card-widget { margin-bottom: 0; }
 .site-data > a .length-num { margin-top: -.32em; font-size: 1.4em; }
