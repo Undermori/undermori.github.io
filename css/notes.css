@@ -1,59 +1,582 @@
-.notes-home { border-top: 1px solid var(--border-color-light); border-bottom: 1px solid var(--border-color-light); background: transparent; padding: 24px 40px; }
-#recent-posts > #home-notes + .recent-post-item { margin-top: 44px; }
-.notes-home-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
-.notes-home-header h2 { margin: 0; font: 600 1.4rem/1.5 'Blog Noto Serif SC', serif; color: var(--text-primary); }
-.notes-home-header a, .notes-time, .notes-updated { font-size: 13px; color: var(--text-muted); text-decoration: none; }
-.notes-time { line-height: 1.85; padding-top: 3px; white-space: nowrap; }
-.notes-home-item { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 20px; padding: 20px 0; border-top: 1px solid var(--border-color); overflow-wrap: anywhere; }
-.notes-home-body, .notes-body { min-width: 0; }
-.notes-home-content { margin: 0; font-size: 16px; line-height: 1.8; }
-.notes-home-content a { color: var(--text-secondary); }
-.notes-home-thumbnail { display: block; width: 96px; margin: 10px 0; }
-.notes-home-thumbnail img { display: block; width: 96px; height: 72px; object-fit: cover; border-radius: 4px; }
-.notes-item { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 24px; padding: 28px 0; border-top: 1px solid var(--border-color); scroll-margin-top: 80px; overflow-wrap: anywhere; }
-.notes-item:last-child { border-bottom: 1px solid var(--border-color); }
-.notes-content { color: var(--text-secondary); font-size: 17px; line-height: 1.85; }
-.notes-content p { margin: 12px 0; }
-.notes-content > :first-child { margin-top: 0; }
-.notes-content > :last-child { margin-bottom: 0; }
-.notes-content h1, .notes-content h2, .notes-content h3 { font-size: 20px; color: var(--text-primary); }
-.notes-content a { color: var(--accent-hover); text-decoration: underline; }
-.notes-content blockquote { margin: 12px 0; padding-left: 16px; border-left: 2px solid var(--accent-border); }
-.notes-content pre { overflow: auto; max-width: 100%; padding: 12px; background: var(--bg-elevated); }
-.notes-content code { font-family: 'Cascadia Code', 'Sarasa Mono SC', monospace; }
-.notes-tags { display: flex; flex-wrap: wrap; gap: 4px 12px; color: var(--accent); font-size: 13px; margin-top: 8px; }
-.notes-metadata { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 0 0 20px; font-size: 12px; color: var(--text-muted); }
-.notes-metadata strong { font-weight: 400; color: var(--text-secondary); }
-.notes-images { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 16px 0; }
-.notes-images a { display: block; min-width: 0; align-self: start; }
-.notes-images img { display: block; width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; border-radius: 4px; }
-.notes-images--1 { grid-template-columns: minmax(0, 1fr); }
-.notes-images--1 { max-width: 420px; }
-#notes-feed #article-container .notes-images img { display: block; width: 100%; height: auto; max-height: none; aspect-ratio: auto; object-fit: contain; margin: 0; }
-#notes-feed .notes-metadata { justify-content: space-between; }
-.notes-home-footer, #notes-feed .notes-footer { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; margin-top: 12px; }
-.notes-home-footer { margin-top: 6px; }
-.notes-home-footer .notes-tags, #notes-feed .notes-footer .notes-tags { margin-top: 0; }
-.notes-home-footer:empty, #notes-feed .notes-footer:empty { display: none; }
-.notes-response, .notes-home-response { margin-left: auto; padding: 0; background: transparent; border: 0; color: var(--text-muted); font: 400 13px/1.85 'Blog Noto Sans SC', sans-serif; cursor: pointer; }
-.notes-response:hover, .notes-home-response:hover { color: var(--accent-hover); }
-.notes-home-response[hidden], .notes-comment[hidden], .notes-comment.no-comment { display: none; }
-.notes-comment-count:empty { display: none; }
-#notes-feed .notes-comment { grid-column: 1 / -1; width: 100%; min-width: 0; }
-#notes-feed .notes-comment .custom-hr, #notes-feed .comment-head { display: none; }
-#notes-feed .shuoshuo-navigation { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: 24px 0 0; padding: 0; background: transparent; }
-#notes-feed .shuoshuo-navigation button { display: inline-flex; align-items: center; width: auto; height: auto; min-width: 0; padding: 0; border: 0; border-radius: 0; background: transparent !important; box-shadow: none !important; color: var(--text-muted); font: 400 13px/1.85 'Blog Noto Sans SC', sans-serif; white-space: nowrap; overflow: visible; transition: color 160ms ease !important; transform: none !important; animation: none !important; cursor: pointer; }
-#notes-feed .shuoshuo-navigation button::before, #notes-feed .shuoshuo-navigation button::after { display: none !important; content: none !important; }
-#notes-feed .shuoshuo-navigation button:hover:not(:disabled), #notes-feed .shuoshuo-navigation button:active:not(:disabled) { background: transparent !important; box-shadow: none !important; color: var(--accent-hover); transform: none !important; animation: none !important; }
-#notes-feed .shuoshuo-navigation button:disabled { background: transparent !important; box-shadow: none !important; color: var(--text-muted); opacity: .4; transform: none !important; cursor: default; }
-.notes-empty { color: var(--text-secondary); }
-.notes-time:hover, .notes-home a:hover { color: var(--accent-hover); }
-@media screen and (max-width: 768px) {
-  .notes-home { padding: 20px; }
-  .notes-content { font-size: 16px; }
-  .notes-images { gap: 8px; }
+/* ==========================================================================
+   Notes · 案头手札
+   1. Home lead card (#home-notes)  — a dated desk slip above the article list
+   2. /notes/ timeline (#notes-feed) — 168px time column + content (RED LINE 4)
+   3. Inline response (Giscus) + pager (RED LINE 3)
+   ========================================================================== */
+
+/* 1 · Home lead card ------------------------------------------------------ */
+.notes-home {
+  position: relative;
+  margin-bottom: 52px;
+  padding: 26px 32px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
 }
+
+#recent-posts > #home-notes + .recent-post-item {
+  margin-top: 0;
+}
+
+.notes-home-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 6px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.notes-home-header h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0;
+  color: var(--text-primary);
+  font: 600 1.3rem/1.4 var(--font-serif);
+  letter-spacing: 0.06em;
+}
+
+.notes-home-header a {
+  color: var(--text-muted);
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color var(--ease);
+}
+
+.notes-home-header a:hover {
+  color: var(--accent-hover);
+}
+
+.notes-home-item {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 24px;
+  padding: 16px 0 12px;
+  border-top: 1px solid var(--border-subtle);
+  overflow-wrap: anywhere;
+}
+
+.notes-home-header + .notes-home-item {
+  border-top: 0;
+}
+
+.notes-home-body,
+.notes-body {
+  min-width: 0;
+}
+
+.notes-time {
+  color: var(--accent-ink);
+  font-size: 12.5px;
+  line-height: 1.85;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--ease);
+}
+
+.notes-home .notes-time {
+  padding-top: 3px;
+}
+
+.notes-time:hover {
+  color: var(--accent-hover);
+}
+
+.notes-home-content {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.9;
+}
+
+.notes-home-content a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--ease);
+}
+
+.notes-home-content a:hover {
+  color: var(--text-primary);
+}
+
+.notes-home-thumbnail {
+  display: block;
+  margin: 10px 0;
+  width: 96px;
+}
+
+.notes-home-thumbnail img {
+  display: block;
+  width: 96px;
+  height: 72px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.notes-updated {
+  color: var(--text-muted);
+  font-size: 12.5px;
+}
+
+/* Footer row: tags left, boxed 「回应」 trigger right (RED LINE 4). */
+.notes-home-footer,
+#notes-feed .notes-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.notes-home-footer {
+  margin-top: 6px;
+}
+
+.notes-home-footer .notes-tags,
+#notes-feed .notes-footer .notes-tags {
+  margin-top: 0;
+}
+
+.notes-home-footer:empty,
+#notes-feed .notes-footer:empty {
+  display: none;
+}
+
+.notes-response,
+.notes-home-response {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 2px 11px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-muted);
+  font: 400 12px/1.8 var(--font-sans);
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: color var(--ease), border-color var(--ease), background-color var(--ease);
+}
+
+.notes-response::before,
+.notes-home-response::before {
+  display: none;
+  content: none;
+}
+
+.notes-response:hover,
+.notes-home-response:hover,
+.notes-response[aria-expanded='true'] {
+  border-color: var(--accent-border);
+  background: var(--accent-softer);
+  color: var(--accent-hover);
+}
+
+.notes-home-response[hidden],
+.notes-comment[hidden],
+.notes-comment.no-comment {
+  display: none;
+}
+
+.notes-comment-count {
+  font-variant-numeric: tabular-nums;
+}
+
+.notes-comment-count:empty {
+  display: none;
+}
+
+.notes-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 8px;
+  color: var(--accent-ink);
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+}
+
+/* 2 · /notes/ timeline ----------------------------------------------------- */
+.notes-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 0 0 18px;
+  border-bottom: 1px solid var(--border-color-light);
+  color: var(--text-muted);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+}
+
+.notes-metadata strong {
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: 1.15em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+#notes-feed .notes-metadata {
+  justify-content: space-between;
+}
+
+#notes-feed #article-container {
+  position: relative;
+}
+
+.notes-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  column-gap: 44px;
+  padding: 0;
+  scroll-margin-top: 80px;
+  overflow-wrap: anywhere;
+}
+
+/* Continuous spine between the columns. */
+.notes-item::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 190px;
+  width: 1px;
+  background: var(--border-color);
+  content: '';
+}
+
+.notes-item::after {
+  display: none;
+  content: none;
+}
+
+#notes-feed .notes-item .notes-time {
+  position: sticky;
+  top: 76px;
+  align-self: start;
+  padding-top: 28px;
+  text-align: right;
+}
+
+#notes-feed .notes-body {
+  padding: 26px 0 28px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+#notes-feed .notes-item:last-child .notes-body {
+  border-bottom: 0;
+}
+
+.notes-item:target .notes-body {
+  background: linear-gradient(90deg, var(--accent-softer), transparent 60%);
+}
+
+.notes-content {
+  color: var(--text-secondary);
+  font-size: 16.5px;
+  line-height: 1.95;
+}
+
+#notes-feed .notes-content p {
+  margin: 10px 0;
+}
+
+.notes-content > :first-child,
+#notes-feed .notes-content > :first-child {
+  margin-top: 0;
+}
+
+.notes-content > :last-child,
+#notes-feed .notes-content > :last-child {
+  margin-bottom: 0;
+}
+
+.notes-content h1,
+.notes-content h2,
+.notes-content h3 {
+  margin: 14px 0 8px;
+  padding: 0;
+  border: 0;
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
+.notes-content a {
+  color: var(--accent-ink);
+}
+
+#notes-feed .notes-content blockquote {
+  margin: 12px 0;
+  padding: 8px 16px;
+  font-size: 0.96em;
+}
+
+#notes-feed .notes-content blockquote::before {
+  display: none;
+}
+
+.notes-content pre {
+  overflow: auto;
+  max-width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+}
+
+.notes-content code {
+  font-family: var(--font-mono);
+}
+
+/* Images: matted prints. */
+.notes-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 16px 0 4px;
+  max-width: 560px;
+}
+
+.notes-images--3,
+.notes-images--5,
+.notes-images--6,
+.notes-images--7,
+.notes-images--8,
+.notes-images--9 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.notes-images a {
+  display: block;
+  overflow: hidden;
+  min-width: 0;
+  align-self: start;
+  padding: 4px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+  transition: border-color var(--ease);
+}
+
+.notes-images a:hover {
+  border-color: var(--accent-border);
+}
+
+.notes-images img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+.notes-images--1 {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 400px;
+}
+
+#notes-feed #article-container .notes-images img {
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  border: 0;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+/* Embedded music / link cards inside notes. */
+#notes-feed .notes-content iframe,
+#notes-feed .notes-content .aplayer,
+#notes-feed .notes-content .tag-link,
+#notes-feed .notes-content .tag-Link {
+  max-width: 100%;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius) !important;
+  background: var(--bg-secondary) !important;
+  box-shadow: none !important;
+}
+
+/* 3 · Inline response + pager --------------------------------------------- */
+#notes-feed .notes-comment {
+  grid-column: 2;
+  width: 100%;
+  min-width: 0;
+  margin: -12px 0 24px;
+  padding: 18px 20px 6px;
+  border: 1px solid var(--border-color);
+  border-top: 1px solid var(--accent-border);
+  border-radius: 0 0 var(--radius) var(--radius);
+  background: var(--bg-secondary);
+}
+
+#notes-feed .notes-comment .custom-hr,
+#notes-feed .comment-head {
+  display: none;
+}
+
+/* RED LINE 3: pager buttons stay on one line, no sweep pseudo-elements. */
+#notes-feed .shuoshuo-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 28px 0 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--border-color-light);
+  background: transparent;
+}
+
+#notes-feed .shuoshuo-navigation button {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  height: auto;
+  min-width: 0;
+  padding: 5px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--text-secondary);
+  font: 400 12px/1.8 var(--font-sans);
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+  overflow: visible;
+  transition: color var(--ease), border-color var(--ease) !important;
+  transform: none !important;
+  animation: none !important;
+  cursor: pointer;
+}
+
+#notes-feed .shuoshuo-navigation button::before,
+#notes-feed .shuoshuo-navigation button::after {
+  display: none !important;
+  content: none !important;
+}
+
+#notes-feed .shuoshuo-navigation button:hover:not(:disabled),
+#notes-feed .shuoshuo-navigation button:active:not(:disabled) {
+  border-color: var(--accent-border);
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--accent-hover);
+  transform: none !important;
+  animation: none !important;
+}
+
+#notes-feed .shuoshuo-navigation button:disabled {
+  border-color: var(--border-subtle);
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--text-faint);
+  opacity: 0.6;
+  transform: none !important;
+  cursor: default;
+}
+
+.notes-empty {
+  color: var(--text-secondary);
+}
+
+.notes-home a:hover {
+  color: var(--accent-hover);
+}
+
+/* Responsive --------------------------------------------------------------- */
+@media screen and (max-width: 900px) {
+  .notes-item {
+    grid-template-columns: 132px minmax(0, 1fr);
+    column-gap: 36px;
+  }
+
+  .notes-item::before {
+    left: 150px;
+  }
+
+  .notes-item::after {
+    left: 147px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .notes-home {
+    margin-bottom: 36px;
+    padding: 20px 18px 10px;
+  }
+
+  .notes-home::before {
+    left: 18px;
+  }
+
+  .notes-home-header h2::after {
+    display: none;
+  }
+
+  .notes-home-item {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .notes-content {
+    font-size: 16px;
+  }
+
+  .notes-images {
+    gap: 6px;
+  }
+}
+
 @media screen and (max-width: 600px) {
-  .notes-home-item, .notes-item { grid-template-columns: minmax(0, 1fr); gap: 8px; }
-  .notes-time { padding-top: 0; }
+  .notes-home-item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+
+  .notes-home .notes-time {
+    padding-top: 0;
+  }
+
+  /* Timeline collapses to a single column with the spine on the left. */
+  .notes-item {
+    grid-template-columns: minmax(0, 1fr);
+    padding-left: 22px;
+  }
+
+  .notes-item::before {
+    left: 3px;
+  }
+
+  .notes-item::after {
+    top: 27px;
+    left: 0;
+  }
+
+  #notes-feed .notes-item .notes-time {
+    position: static;
+    padding-top: 20px;
+    text-align: left;
+  }
+
+  #notes-feed .notes-body {
+    padding: 6px 0 22px;
+  }
+
+  #notes-feed .notes-comment {
+    grid-column: 1;
+    margin-top: -8px;
+    padding: 14px 12px 4px;
+  }
 }
