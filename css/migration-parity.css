@@ -46,7 +46,7 @@
 }
 .tag-cloud-list a::before { content: none; }
 .tag-cloud-list:hover a:not(:hover) { opacity: 1; transform: none; }
-.tag-cloud-list a:hover { transform: scale(1.1); box-shadow: none; }
+.tag-cloud-list a:hover { transform: none; box-shadow: none; }
 #aside-content .author-info-name,
 #aside-content .author-info-description { font-family: 'Blog Noto Serif SC', serif; }
 #aside-content .author-info-name { margin-top: 16px; color: var(--text-primary); font-size: 1.6em; }

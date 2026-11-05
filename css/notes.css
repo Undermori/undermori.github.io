@@ -41,10 +41,11 @@
 .notes-comment-count:empty { display: none; }
 #notes-feed .notes-comment { grid-column: 1 / -1; width: 100%; min-width: 0; }
 #notes-feed .notes-comment .custom-hr, #notes-feed .comment-head { display: none; }
-#notes-feed .shuoshuo-navigation { display: flex; justify-content: space-between; gap: 16px; margin: 24px 0 0; padding: 0; background: transparent; }
-#notes-feed .shuoshuo-navigation button { background: transparent; color: var(--text-muted); font: 400 13px/1.85 'Blog Noto Sans SC', sans-serif; border: 0; padding: 0; }
-#notes-feed .shuoshuo-navigation button:hover { color: var(--accent-hover); }
-#notes-feed .shuoshuo-navigation button:disabled { opacity: .4; cursor: default; }
+#notes-feed .shuoshuo-navigation { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: 24px 0 0; padding: 0; background: transparent; }
+#notes-feed .shuoshuo-navigation button { display: inline-flex; align-items: center; width: auto; height: auto; min-width: 0; padding: 0; border: 0; border-radius: 0; background: transparent !important; box-shadow: none !important; color: var(--text-muted); font: 400 13px/1.85 'Blog Noto Sans SC', sans-serif; white-space: nowrap; overflow: visible; transition: color 160ms ease !important; transform: none !important; animation: none !important; cursor: pointer; }
+#notes-feed .shuoshuo-navigation button::before, #notes-feed .shuoshuo-navigation button::after { display: none !important; content: none !important; }
+#notes-feed .shuoshuo-navigation button:hover:not(:disabled), #notes-feed .shuoshuo-navigation button:active:not(:disabled) { background: transparent !important; box-shadow: none !important; color: var(--accent-hover); transform: none !important; animation: none !important; }
+#notes-feed .shuoshuo-navigation button:disabled { background: transparent !important; box-shadow: none !important; color: var(--text-muted); opacity: .4; transform: none !important; cursor: default; }
 .notes-empty { color: var(--text-secondary); }
 .notes-time:hover, .notes-home a:hover { color: var(--accent-hover); }
 @media screen and (max-width: 768px) {
