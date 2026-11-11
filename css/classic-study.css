@@ -809,9 +809,11 @@ button::before,
   letter-spacing: 0;
 }
 
+#aside-content .card-info .author-info-description,
+#aside-content .card-info .author-info__description,
 #aside-content .author-info-description,
 #aside-content .author-info__description {
-  margin-top: 6px;
+  margin-top: 14px !important;
   color: var(--text-secondary);
   font-family: 'Blog Noto Serif SC', serif !important;
   font-size: 1em;
