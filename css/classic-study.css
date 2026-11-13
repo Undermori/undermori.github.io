@@ -34,7 +34,7 @@ html[data-theme='dark'] {
   /* Ink: 暖宣纸护眼字色，非刺眼纯白 */
   --text-primary: #e6dfd2;
   --text-secondary: #aaa194;
-  --text-muted: #7d7569;
+  --text-muted: #8c8376;
   --text-faint: #5a544b;
 
   /* Mori Red (森下红 #aa4241) */
@@ -1010,7 +1010,7 @@ button::before,
   padding: 1px 0;
   color: var(--text-secondary) !important;
   font-size: 0.88em !important;
-  line-height: 1.6;
+  line-height: 1.75;
   transition: color var(--ease);
 }
 
@@ -1398,11 +1398,6 @@ button::before,
   font-size: 0.78em;
 }
 
-#article-container figure.highlight table {
-  border-collapse: collapse;
-  scrollbar-color: var(--hlscrollbar-bg) transparent;
-}
-
 #article-container figure.highlight pre {
   margin: 0;
   border: none;
@@ -1507,8 +1502,10 @@ button::before,
   margin: 0;
   width: auto;
   border: 0;
+  border-collapse: collapse;
   font-size: inherit;
   line-height: inherit;
+  scrollbar-color: var(--hlscrollbar-bg) transparent;
 }
 
 #article-container figure.highlight table td {
