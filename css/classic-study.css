@@ -72,7 +72,10 @@ html[data-theme='dark'] {
   --text-bg-hover: var(--accent-soft);
   --pseudo-hover: var(--accent);
   --toc-link-color: var(--text-secondary);
-  --scrollbar-color: #4a443c;
+  --scrollbar-thumb: #6a6258;
+  --scrollbar-thumb-hover: #7d7468;
+  --scrollbar-track: var(--bg-primary);
+  --scrollbar-color: var(--scrollbar-thumb);
   --reward-pop: var(--bg-elevated);
   --search-bg: var(--bg-secondary);
   --search-input-color: var(--text-primary);
@@ -92,7 +95,7 @@ html[data-theme='dark'] {
   --hltools-color: var(--text-muted);
   --hlnumber-bg: #141210;
   --hlnumber-color: #5f584e;
-  --hlscrollbar-bg: #3a352e;
+  --hlscrollbar-bg: #5e564d;
   --hlexpand-bg: linear-gradient(180deg, rgba(23, 21, 18, 0.4), #171512);
 }
 
@@ -121,24 +124,26 @@ body {
   color: #f4ede2;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
 
-::-webkit-scrollbar-thumb {
-  border: 2px solid var(--bg-primary);
-  border-radius: var(--radius);
-  background: #3e3832;
-}
+  ::-webkit-scrollbar-thumb {
+    border: 2px solid var(--scrollbar-track);
+    border-radius: var(--radius);
+    background: var(--scrollbar-thumb);
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #5a5148;
-}
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
 
-::-webkit-scrollbar-track,
-::-webkit-scrollbar-corner {
-  background: var(--bg-primary);
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: var(--scrollbar-track);
+  }
 }
 
 a,
@@ -451,6 +456,7 @@ button::before,
   line-height: 1.38;
   letter-spacing: 0.04em;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+  text-wrap: balance;
   -webkit-line-clamp: 3;
 }
 
@@ -567,6 +573,11 @@ button::before,
 
 #recent-posts > .recent-post-item:not(:first-child) {
   margin-top: 0;
+}
+
+#recent-posts > .recent-post-item:nth-of-type(n+4) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 260px;
 }
 
 /* Hover ruler: a 2px cinnabar line fades in at the left edge. */
@@ -1114,6 +1125,15 @@ button::before,
 
 #article-container p {
   margin: 0 0 1.15em;
+  text-wrap: pretty;
+}
+
+#article-container.post-content :is(li, blockquote) {
+  text-wrap: pretty;
+}
+
+#article-container.post-content :is(h3, h4) {
+  text-wrap: balance;
 }
 
 #article-container h1,
@@ -1882,6 +1902,8 @@ button::before,
 /* Comments */
 #post-comment {
   margin-top: 48px;
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 320px;
 }
 
 #post-comment .comment-head {

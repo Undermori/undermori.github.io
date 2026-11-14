@@ -28,10 +28,10 @@
   }
 }
 
-/* Firefox scrollbars, matched to the WebKit ones in classic-study.css. */
+/* Standard scrollbars, using the study's unified custom properties. */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #3e3832 transparent;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 /* Butterfly 5.x dark-mode filters that would dim the study's images. */

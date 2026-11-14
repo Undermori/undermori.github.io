@@ -92,6 +92,7 @@
   margin: 0;
   font-size: 15.5px;
   line-height: 1.9;
+  text-wrap: pretty;
 }
 
 .notes-home-content a {
@@ -285,6 +286,7 @@
   color: var(--text-secondary);
   font-size: 16.5px;
   line-height: 1.95;
+  text-wrap: pretty;
 }
 
 #notes-feed .notes-content p {
