@@ -198,6 +198,8 @@
 
     loadLightbox: ele => {
       const service = GLOBAL_CONFIG.lightbox
+      if (service === 'medium_zoom' && typeof mediumZoom === 'undefined') return
+      if (service === 'fancybox' && typeof Fancybox === 'undefined') return
 
       if (service === 'medium_zoom') {
         mediumZoom(ele, { background: 'var(--zoom-bg)' })
