@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>執筆未遂</title>
+  <subtitle>“每当身在荒漠但见沙丘翻绉，遭永恒焚火之时间扇摩腐蚀。”</subtitle>
+  <link href="https://undermori.github.io/atom.xml" rel="self"/>
+  <link href="https://undermori.github.io/"/>
+  <updated>2026-09-27T07:17:29.372Z</updated>
+  <id>https://undermori.github.io/</id>
+  <author>
+    <name>Undermori</name>
+  </author>
+  <entry>
+    <title>爹味监督不配讲少女的故事【视频文稿】</title>
+    <link href="https://undermori.github.io/2026/09/24/%E7%88%B9%E5%91%B3%E7%9B%91%E7%9D%A3%E4%B8%8D%E9%85%8D%E8%AE%B2%E5%B0%91%E5%A5%B3%E7%9A%84%E6%95%85%E4%BA%8B/"/>
+    <id>https://undermori.github.io/2026/09/24/%E7%88%B9%E5%91%B3%E7%9B%91%E7%9D%A3%E4%B8%8D%E9%85%8D%E8%AE%B2%E5%B0%91%E5%A5%B3%E7%9A%84%E6%95%85%E4%BA%8B/</id>
+    <published>2026-09-24T04:15:13.000Z</published>
+    <updated>2026-09-27T07:17:29.372Z</updated>
+    <category term="ACGN杂谈" scheme="https://undermori.github.io/categories/ACGN%E6%9D%82%E8%B0%88/"/>
+    <category term="视频文稿同步" scheme="https://undermori.github.io/tags/%E8%A7%86%E9%A2%91%E6%96%87%E7%A8%BF%E5%90%8C%E6%AD%A5/"/>
+    <category term="再见菈菈" scheme="https://undermori.github.io/tags/%E5%86%8D%E8%A7%81%E8%8F%88%E8%8F%88/"/>
+    <category term="吐槽" scheme="https://undermori.github.io/tags/%E5%90%90%E6%A7%BD/"/>
+    <summary type="text">说实话，这个结局除了是小出卓史在输出自己对于“离开滋贺”执念之外，我想不到别的任何合理性。</summary>
+  </entry>
+  <entry>
+    <title>M²Shelf——一个适合赛博仓鼠的本地媒体库</title>
+    <link href="https://undermori.github.io/2026/08/26/M%C2%B2Shelf%E4%BB%8B%E7%BB%8D%E8%AF%B4%E6%98%8E/"/>
+    <id>https://undermori.github.io/2026/08/26/M%C2%B2Shelf%E4%BB%8B%E7%BB%8D%E8%AF%B4%E6%98%8E/</id>
+    <published>2026-08-25T16:00:00.000Z</published>
+    <updated>2026-11-11T07:59:03.412Z</updated>
+    <category term="资源分享" scheme="https://undermori.github.io/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
+    <category term="M²Shelf" scheme="https://undermori.github.io/tags/M%C2%B2Shelf/"/>
+    <category term="软件" scheme="https://undermori.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    <category term="媒体管理" scheme="https://undermori.github.io/tags/%E5%AA%92%E4%BD%93%E7%AE%A1%E7%90%86/"/>
+    <category term="Windows" scheme="https://undermori.github.io/tags/Windows/"/>
+    <summary type="text">M²Shelf 是一款面向 Windows 本地媒体收藏的只读索引浏览器，提供海报墙、Bangumi 绑定、标签、收藏夹、最近观看和外部播放器入口。</summary>
+  </entry>
+  <entry>
+    <title>鱼被凌迟叫鱼生，人被凌迟叫人生【视频文稿】</title>
+    <link href="https://undermori.github.io/2026/08/05/%E9%B1%BC%E8%A2%AB%E5%87%8C%E8%BF%9F%E5%8F%AB%E9%B1%BC%E7%94%9F%EF%BC%8C%E4%BA%BA%E8%A2%AB%E5%87%8C%E8%BF%9F%E5%8F%AB%E4%BA%BA%E7%94%9F%E3%80%90%E8%A7%86%E9%A2%91%E6%96%87%E7%A8%BF%E3%80%91/"/>
+    <id>https://undermori.github.io/2026/08/05/%E9%B1%BC%E8%A2%AB%E5%87%8C%E8%BF%9F%E5%8F%AB%E9%B1%BC%E7%94%9F%EF%BC%8C%E4%BA%BA%E8%A2%AB%E5%87%8C%E8%BF%9F%E5%8F%AB%E4%BA%BA%E7%94%9F%E3%80%90%E8%A7%86%E9%A2%91%E6%96%87%E7%A8%BF%E3%80%91/</id>
+    <published>2026-08-05T03:30:06.000Z</published>
+    <updated>2026-09-27T07:17:21.749Z</updated>
+    <category term="ACGN杂谈" scheme="https://undermori.github.io/categories/ACGN%E6%9D%82%E8%B0%88/"/>
+    <category term="视频文稿同步" scheme="https://undermori.github.io/tags/%E8%A7%86%E9%A2%91%E6%96%87%E7%A8%BF%E5%90%8C%E6%AD%A5/"/>
+    <category term="相反的你与我" scheme="https://undermori.github.io/tags/%E7%9B%B8%E5%8F%8D%E7%9A%84%E4%BD%A0%E4%B8%8E%E6%88%91/"/>
+    <summary type="text">矫情、做作、苦吃少了，似乎你对这个世界每多一分超过维持最低生命体征的需求和表达，都能冒出新的负面词汇来形容你。</summary>
+  </entry>
+  <entry>
+    <title>“坏结局”有时才圆满？【视频文稿】</title>
+    <link href="https://undermori.github.io/2026/05/20/%E5%9D%8F%E7%BB%93%E5%B1%80/"/>
+    <id>https://undermori.github.io/2026/05/20/%E5%9D%8F%E7%BB%93%E5%B1%80/</id>
+    <published>2026-05-20T03:22:29.000Z</published>
+    <updated>2026-09-27T07:17:37.558Z</updated>
+    <category term="ACGN杂谈" scheme="https://undermori.github.io/categories/ACGN%E6%9D%82%E8%B0%88/"/>
+    <category term="视频文稿同步" scheme="https://undermori.github.io/tags/%E8%A7%86%E9%A2%91%E6%96%87%E7%A8%BF%E5%90%8C%E6%AD%A5/"/>
+    <category term="文学" scheme="https://undermori.github.io/tags/%E6%96%87%E5%AD%A6/"/>
+    <category term="悲剧" scheme="https://undermori.github.io/tags/%E6%82%B2%E5%89%A7/"/>
+    <category term="恶魔人" scheme="https://undermori.github.io/tags/%E6%81%B6%E9%AD%94%E4%BA%BA/"/>
+    <summary type="text">从古典悲剧到《恶魔人 CRYBABY》，聊聊“坏结局”背后的故事。</summary>
+  </entry>
+  <entry>
+    <title>动漫阳痿是大龄二次元的宿命？【视频文稿】</title>
+    <link href="https://undermori.github.io/2026/03/06/%E5%8A%A8%E6%BC%ABED%E6%98%AF%E5%A4%A7%E9%BE%84%E4%BA%8C%E6%AC%A1%E5%85%83%E7%9A%84%E5%AE%BF%E5%91%BD%EF%BC%9F/"/>
+    <id>https://undermori.github.io/2026/03/06/%E5%8A%A8%E6%BC%ABED%E6%98%AF%E5%A4%A7%E9%BE%84%E4%BA%8C%E6%AC%A1%E5%85%83%E7%9A%84%E5%AE%BF%E5%91%BD%EF%BC%9F/</id>
+    <published>2026-03-06T07:06:06.000Z</published>
+    <updated>2026-09-26T16:51:24.005Z</updated>
+    <category term="ACGN杂谈" scheme="https://undermori.github.io/categories/ACGN%E6%9D%82%E8%B0%88/"/>
+    <category term="视频文稿同步" scheme="https://undermori.github.io/tags/%E8%A7%86%E9%A2%91%E6%96%87%E7%A8%BF%E5%90%8C%E6%AD%A5/"/>
+    <summary type="text">从我自己的二次元经历聊聊：到底是我们老了，还是时代变了。</summary>
+  </entry>
+  <entry>
+    <title>为什么ACG行业出现了越来越多的“油泼三文鱼”【视频文稿】</title>
+    <link href="https://undermori.github.io/2025/11/14/%E5%89%8D%E4%BB%8E%E4%B8%9A%E8%80%85%E8%81%8A%E8%81%8A%E4%B8%BA%E4%BB%80%E4%B9%88ACG%E8%A1%8C%E4%B8%9A%E5%87%BA%E7%8E%B0%E4%BA%86%E8%B6%8A%E6%9D%A5%E8%B6%8A%E5%A4%9A%E7%9A%84%E2%80%9C%E6%B2%B9%E6%B3%BC%E4%B8%89%E6%96%87%E9%B1%BC%E2%80%9D/"/>
+    <id>https://undermori.github.io/2025/11/14/%E5%89%8D%E4%BB%8E%E4%B8%9A%E8%80%85%E8%81%8A%E8%81%8A%E4%B8%BA%E4%BB%80%E4%B9%88ACG%E8%A1%8C%E4%B8%9A%E5%87%BA%E7%8E%B0%E4%BA%86%E8%B6%8A%E6%9D%A5%E8%B6%8A%E5%A4%9A%E7%9A%84%E2%80%9C%E6%B2%B9%E6%B3%BC%E4%B8%89%E6%96%87%E9%B1%BC%E2%80%9D/</id>
+    <published>2025-11-14T06:19:05.000Z</published>
+    <updated>2026-09-27T07:17:16.712Z</updated>
+    <category term="ACGN杂谈" scheme="https://undermori.github.io/categories/ACGN%E6%9D%82%E8%B0%88/"/>
+    <category term="视频文稿同步" scheme="https://undermori.github.io/tags/%E8%A7%86%E9%A2%91%E6%96%87%E7%A8%BF%E5%90%8C%E6%AD%A5/"/>
+    <category term="行业观察" scheme="https://undermori.github.io/tags/%E8%A1%8C%E4%B8%9A%E8%A7%82%E5%AF%9F/"/>
+    <category term="IP运营" scheme="https://undermori.github.io/tags/IP%E8%BF%90%E8%90%A5/"/>
+    <category term="职场" scheme="https://undermori.github.io/tags/%E8%81%8C%E5%9C%BA/"/>
+    <summary type="text">汇集一些我自己和朋友们从传统广告、ACG周边、运营与 ToB 媒体等几个行业的见闻，聊聊哪儿来这么多“油泼三文鱼”。</summary>
+  </entry>
+  <entry>
+    <title>《歧路旅人（八方旅人）》简评</title>
+    <link href="https://undermori.github.io/2024/09/15/%E6%AD%A7%E8%B7%AF%E6%97%85%E4%BA%BA%EF%BC%88%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%EF%BC%89/"/>
+    <id>https://undermori.github.io/2024/09/15/%E6%AD%A7%E8%B7%AF%E6%97%85%E4%BA%BA%EF%BC%88%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%EF%BC%89/</id>
+    <published>2024-09-14T16:00:00.000Z</published>
+    <updated>2024-09-18T08:42:41.048Z</updated>
+    <category term="ACGN杂谈" scheme="https://undermori.github.io/categories/ACGN%E6%9D%82%E8%B0%88/"/>
+    <category term="游戏" scheme="https://undermori.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
+    <category term="RPG" scheme="https://undermori.github.io/tags/RPG/"/>
+    <category term="歧路旅人" scheme="https://undermori.github.io/tags/%E6%AD%A7%E8%B7%AF%E6%97%85%E4%BA%BA/"/>
+    <summary type="text">记得看到玩家吐槽：“八方旅人一方五十，实在太贵，如果能分开买就好了。”现在想来，倘若当真可以分来买，剧情上的问题或许不会这么明显。</summary>
+  </entry>
+  <entry>
+    <title>通过GitHub Pages上线网站相关配置</title>
+    <link href="https://undermori.github.io/2024/08/16/%E9%80%9A%E8%BF%87GitHub%20Pages%E4%B8%8A%E7%BA%BF%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/"/>
+    <id>https://undermori.github.io/2024/08/16/%E9%80%9A%E8%BF%87GitHub%20Pages%E4%B8%8A%E7%BA%BF%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/</id>
+    <published>2024-08-16T10:55:28.747Z</published>
+    <updated>2024-09-13T07:42:46.232Z</updated>
+    <category term="经验分享" scheme="https://undermori.github.io/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    <category term="建站" scheme="https://undermori.github.io/tags/%E5%BB%BA%E7%AB%99/"/>
+    <category term="零基础" scheme="https://undermori.github.io/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80/"/>
+    <summary type="text">GitHub优点是免费、简单、快速，缺点是国内IP访问偶尔会抽风，再就是域名相对于有自己服务器的情况来说不够那么个性化（用户名+github.io），根据自己的情况与需求选择就好。</summary>
+  </entry>
+  <entry>
+    <title>Jolly Rover 极乐浪子汉化补丁【Steam版适用】</title>
+    <link href="https://undermori.github.io/2024/08/15/Jolly%20Rover%20%E6%9E%81%E4%B9%90%E6%B5%AA%E5%AD%90%E6%B1%89%E5%8C%96%E8%A1%A5%E4%B8%81%E3%80%90Steam%E7%89%88%E9%80%82%E7%94%A8%E3%80%91/"/>
+    <id>https://undermori.github.io/2024/08/15/Jolly%20Rover%20%E6%9E%81%E4%B9%90%E6%B5%AA%E5%AD%90%E6%B1%89%E5%8C%96%E8%A1%A5%E4%B8%81%E3%80%90Steam%E7%89%88%E9%80%82%E7%94%A8%E3%80%91/</id>
+    <published>2024-08-15T05:33:36.473Z</published>
+    <updated>2024-09-17T06:38:39.916Z</updated>
+    <category term="资源分享" scheme="https://undermori.github.io/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
+    <category term="游戏" scheme="https://undermori.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
+    <category term="老游戏" scheme="https://undermori.github.io/tags/%E8%80%81%E6%B8%B8%E6%88%8F/"/>
+    <category term="稀缺资源备份" scheme="https://undermori.github.io/tags/%E7%A8%80%E7%BC%BA%E8%B5%84%E6%BA%90%E5%A4%87%E4%BB%BD/"/>
+    <category term="解谜" scheme="https://undermori.github.io/tags/%E8%A7%A3%E8%B0%9C/"/>
+    <summary type="text">本文意在为这份宝贵的资源在互联网上多一份备份，方便同我一样喜欢老游戏的朋友，更是希望原汉化作者的才华不被时间所埋没。</summary>
+  </entry>
+  <entry>
+    <title>GitHub+PicGo搭建图床以及Typora自动上传设置</title>
+    <link href="https://undermori.github.io/2024/08/15/GitHub+PicGo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E4%BB%A5%E5%8F%8ATypora%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://undermori.github.io/2024/08/15/GitHub+PicGo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E4%BB%A5%E5%8F%8ATypora%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0%E8%AE%BE%E7%BD%AE/</id>
+    <published>2024-08-14T16:00:00.000Z</published>
+    <updated>2024-09-04T13:53:51.648Z</updated>
+    <category term="经验分享" scheme="https://undermori.github.io/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    <category term="建站" scheme="https://undermori.github.io/tags/%E5%BB%BA%E7%AB%99/"/>
+    <category term="图床" scheme="https://undermori.github.io/tags/%E5%9B%BE%E5%BA%8A/"/>
+    <category term="零基础" scheme="https://undermori.github.io/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80/"/>
+    <summary type="text">使用GitHub搭建的图床相较于其他图床优点在于免费、限制少，缺点是国内IP的访问时不时会抽风，我因为没有网络连接问题与太大的图片需求所以目前足够满足我的需要，具体选择还是根据自己的实际情况决定。</summary>
+  </entry>
+  <entry>
+    <title>Hexo常用命令+常见功能实现与优化配置</title>
+    <link href="https://undermori.github.io/2024/08/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4+%E5%B8%B8%E8%A7%81%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E4%B8%8E%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE/"/>
+    <id>https://undermori.github.io/2024/08/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4+%E5%B8%B8%E8%A7%81%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E4%B8%8E%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE/</id>
+    <published>2024-08-13T17:27:25.424Z</published>
+    <updated>2026-11-10T15:49:04.252Z</updated>
+    <category term="经验分享" scheme="https://undermori.github.io/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    <category term="建站" scheme="https://undermori.github.io/tags/%E5%BB%BA%E7%AB%99/"/>
+    <category term="零基础" scheme="https://undermori.github.io/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80/"/>
+    <category term="Hexo" scheme="https://undermori.github.io/tags/Hexo/"/>
+    <category term="Markdown" scheme="https://undermori.github.io/tags/Markdown/"/>
+    <category term="YAML" scheme="https://undermori.github.io/tags/YAML/"/>
+    <summary type="text">记录自己建站和优化过程中学到的小点，欢迎大佬指正。 以下操作与优化配置基于 Hexo ，主题 Butterfly 。</summary>
+  </entry>
+  <entry>
+    <title>零基础建站流程【个人记录与经验分享】</title>
+    <link href="https://undermori.github.io/2024/08/13/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B%E3%80%90%E4%B8%AA%E4%BA%BA%E8%AE%B0%E5%BD%95%E4%B8%8E%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB%E3%80%91/"/>
+    <id>https://undermori.github.io/2024/08/13/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B%E3%80%90%E4%B8%AA%E4%BA%BA%E8%AE%B0%E5%BD%95%E4%B8%8E%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB%E3%80%91/</id>
+    <published>2024-08-13T09:51:15.102Z</published>
+    <updated>2024-09-13T07:55:18.526Z</updated>
+    <category term="经验分享" scheme="https://undermori.github.io/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    <category term="建站" scheme="https://undermori.github.io/tags/%E5%BB%BA%E7%AB%99/"/>
+    <category term="零基础" scheme="https://undermori.github.io/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80/"/>
+    <category term="Hexo" scheme="https://undermori.github.io/tags/Hexo/"/>
+    <summary type="text">个人建站记录，主要用于后期回顾，会更新遇到的问题与解决方案，但非专业教程，仅供参考。</summary>
+  </entry>
+</feed>
