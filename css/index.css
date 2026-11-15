@@ -223,7 +223,7 @@ template {
 .note:not(.no-icon)::before {
   display: inline-block;
   font-weight: 600;
-  font-family: 'Font Awesome 7 Free', 'Font Awesome 6 Free';
+  font-family: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
 }
@@ -2029,7 +2029,10 @@ figure.highlight pre .javascript .function {
   flex: 0 0 auto;
   margin: 2px;
 }
-.container .highlight-tools i {
+.container .highlight-tools i,
+.container .highlight-tools button.expand,
+.container .highlight-tools button.copy-button,
+.container .highlight-tools button.fullpage-button {
   display: -webkit-inline-box;
   display: -moz-inline-box;
   display: -webkit-inline-flex;
@@ -2048,6 +2051,10 @@ figure.highlight pre .javascript .function {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
   padding: 5px;
   cursor: pointer;
   -webkit-transition: all 0.3s;
@@ -2056,8 +2063,22 @@ figure.highlight pre .javascript .function {
   -ms-transition: all 0.3s;
   transition: all 0.3s;
 }
-.container .highlight-tools i:hover {
+.container .highlight-tools i:hover,
+.container .highlight-tools button.expand:hover,
+.container .highlight-tools button.copy-button:hover,
+.container .highlight-tools button.fullpage-button:hover {
   color: #aa4241;
+}
+.container .highlight-tools button.expand,
+.container .highlight-tools button.copy-button,
+.container .highlight-tools button.fullpage-button {
+  min-width: 26px;
+  min-height: 26px;
+}
+.container .highlight-tools button.expand i,
+.container .highlight-tools button.copy-button i,
+.container .highlight-tools button.fullpage-button i {
+  padding: 0;
 }
 .container .highlight-tools.closed ~ * {
   display: none;
@@ -6417,7 +6438,7 @@ blockquote.pullquote.right {
 }
 .toggle > .toggle-button::before {
   margin-right: 8px;
-  content: '\f0d7';
+  content: '';
   -webkit-transition: -webkit-transform 0.3s ease;
   -moz-transition: -moz-transform 0.3s ease;
   -o-transition: -o-transform 0.3s ease;

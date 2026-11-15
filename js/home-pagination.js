@@ -9,7 +9,7 @@
   const valid = url => url.origin === location.origin && /^\/(?:page\/[1-9]\d*\/)?$/.test(url.pathname);
   const list = () => document.getElementById('recent-posts');
   const snapshot = doc => ({
-    html: doc.getElementById('recent-posts').innerHTML,
+    nodes: doc.getElementById('recent-posts').cloneNode(true),
     title: doc.title,
     canonical: doc.querySelector('link[rel="canonical"]')?.href,
     ogURL: doc.querySelector('meta[property="og:url"]')?.content
@@ -20,7 +20,8 @@
   };
   const newState = position => ({id: `${Date.now()}-${++sequence}`, position});
   const apply = (data, position) => {
-    list().innerHTML = data.html;
+    const imported = Array.from(data.nodes.childNodes, node => document.importNode(node, true));
+    list().replaceChildren(...imported);
     document.title = data.title;
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical && data.canonical) canonical.href = data.canonical;

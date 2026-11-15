@@ -135,7 +135,7 @@
             callback()
             observerItem.disconnect()
           }
-        }, { threshold: [0] })
+        }, { rootMargin: '1600px 0px', threshold: [0] })
         observerItem.observe(dom)
       } else {
         callback()

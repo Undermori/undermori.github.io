@@ -30,18 +30,55 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // sidebar menus
+  let lastFocusedBeforeSidebar = null
+  let sidebarKeyHandler = null
+  const setSidebarTriggerExpanded = expanded => {
+    const trigger = document.querySelector('#toggle-menu button') || document.getElementById('toggle-menu')
+    trigger && trigger.setAttribute('aria-expanded', String(expanded))
+  }
+
   const sidebarFn = {
     open: () => {
+      if (mobileSidebarOpen) return
+      lastFocusedBeforeSidebar = document.activeElement instanceof HTMLElement ? document.activeElement : null
+      const bodyWrap = document.getElementById('body-wrap')
+      if (bodyWrap) bodyWrap.inert = true
       btf.overflowPaddingR.add()
       btf.animateIn(document.getElementById('menu-mask'), 'to_show 0.5s')
-      document.getElementById('sidebar-menus').classList.add('open')
+      const sidebarMenus = document.getElementById('sidebar-menus')
+      sidebarMenus.classList.add('open')
+      setSidebarTriggerExpanded(true)
       mobileSidebarOpen = true
+      requestAnimationFrame(() => {
+        const firstFocusable = sidebarMenus.querySelector('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+        firstFocusable?.focus({ preventScroll: true })
+      })
+      if (!sidebarKeyHandler) {
+        sidebarKeyHandler = e => {
+          if (e.key === 'Escape' && mobileSidebarOpen) {
+            e.preventDefault()
+            sidebarFn.close()
+          }
+        }
+        document.addEventListener('keydown', sidebarKeyHandler)
+      }
     },
     close: () => {
+      if (sidebarKeyHandler) {
+        document.removeEventListener('keydown', sidebarKeyHandler)
+        sidebarKeyHandler = null
+      }
+      const bodyWrap = document.getElementById('body-wrap')
+      if (bodyWrap) bodyWrap.inert = false
       btf.overflowPaddingR.remove()
       btf.animateOut(document.getElementById('menu-mask'), 'to_hide 0.5s')
       document.getElementById('sidebar-menus').classList.remove('open')
+      setSidebarTriggerExpanded(false)
       mobileSidebarOpen = false
+      const fallbackTrigger = document.querySelector('#toggle-menu button')
+      const target = lastFocusedBeforeSidebar && lastFocusedBeforeSidebar.isConnected ? lastFocusedBeforeSidebar : fallbackTrigger
+      lastFocusedBeforeSidebar = null
+      target?.focus?.({ preventScroll: true })
     }
   }
 
@@ -77,10 +114,46 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!((isShowTool || highlightHeightLimit) && $figureHighlight.length)) return
 
     const highlightShrinkClass = isHighlightShrink === true ? 'closed' : ''
-    const highlightShrinkEle = isHighlightShrink !== undefined ? '<i class="fas fa-angle-down expand"></i>' : ''
-    const highlightCopyEle = highlightCopy ? '<i class="fas fa-paste copy-button"></i>' : ''
-    const highlightMacStyleEle = '<div class="macStyle"><div class="mac-close"></div><div class="mac-minimize"></div><div class="mac-maximize"></div></div>'
-    const highlightFullpageEle = highlightFullpage ? '<i class="fa-solid fa-up-right-and-down-left-from-center fullpage-button"></i>' : ''
+
+    const createIconButton = (className, label, iconClass, extraAttrs = {}) => {
+      const btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = className
+      btn.setAttribute('aria-label', label)
+      Object.entries(extraAttrs).forEach(([k, v]) => btn.setAttribute(k, v))
+      const icon = document.createElement('i')
+      icon.className = iconClass
+      icon.setAttribute('aria-hidden', 'true')
+      btn.appendChild(icon)
+      return btn
+    }
+
+    const createMacStyleNode = () => {
+      const wrap = document.createElement('div')
+      wrap.className = 'macStyle'
+      ;['mac-close', 'mac-minimize', 'mac-maximize'].forEach(cls => {
+        const dot = document.createElement('div')
+        dot.className = cls
+        wrap.appendChild(dot)
+      })
+      return wrap
+    }
+
+    let liveAnnouncementToggle = false
+    const announceCopyStatus = message => {
+      let liveRegion = document.getElementById('copy-live-status')
+      if (!liveRegion) {
+        liveRegion = document.createElement('div')
+        liveRegion.id = 'copy-live-status'
+        liveRegion.className = 'sr-only'
+        liveRegion.setAttribute('role', 'status')
+        liveRegion.setAttribute('aria-live', 'polite')
+        liveRegion.setAttribute('aria-atomic', 'true')
+        document.body.appendChild(liveRegion)
+      }
+      liveAnnouncementToggle = !liveAnnouncementToggle
+      liveRegion.textContent = message + (liveAnnouncementToggle ? '\u00A0' : '')
+    }
 
     const alertInfo = (ele, text) => {
       if (GLOBAL_CONFIG.Snackbar !== undefined) {
@@ -133,9 +206,11 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         await navigator.clipboard.writeText(text)
         alertInfo(ctx, GLOBAL_CONFIG.copy.success)
+        announceCopyStatus(GLOBAL_CONFIG.copy.success)
       } catch (err) {
         console.error('Failed to copy: ', err)
         alertInfo(ctx, GLOBAL_CONFIG.copy.noSupport)
+        announceCopyStatus(GLOBAL_CONFIG.copy.noSupport)
       }
     }
 
@@ -150,26 +225,36 @@ document.addEventListener('DOMContentLoaded', () => {
       $buttonParent.classList.remove('copy-true')
     }
 
-    const highlightShrinkFn = ele => ele.classList.toggle('closed')
+    const highlightShrinkFn = (ele, btn) => {
+      const isClosed = ele.classList.toggle('closed')
+      btn.setAttribute('aria-expanded', String(!isClosed))
+    }
 
     const codeFullpage = (item, clickEle) => {
       const wrapEle = item.closest('figure.highlight')
       const isFullpage = wrapEle.classList.toggle('code-fullpage')
 
       document.body.style.overflow = isFullpage ? 'hidden' : ''
-      clickEle.classList.toggle('fa-down-left-and-up-right-to-center', isFullpage)
-      clickEle.classList.toggle('fa-up-right-and-down-left-from-center', !isFullpage)
+      clickEle.setAttribute('aria-pressed', String(isFullpage))
+      const icon = clickEle.querySelector('i') || clickEle
+      icon.classList.toggle('fa-down-left-and-up-right-to-center', isFullpage)
+      icon.classList.toggle('fa-up-right-and-down-left-from-center', !isFullpage)
     }
 
     const highlightToolsFn = e => {
-      const $target = e.target.classList
+      const btn = e.target.closest('button')
+      if (!btn) return
       const currentElement = e.currentTarget
-      if ($target.contains('expand')) highlightShrinkFn(currentElement)
-      else if ($target.contains('copy-button')) highlightCopyFn(currentElement, e.target)
-      else if ($target.contains('fullpage-button')) codeFullpage(currentElement, e.target)
+      if (btn.classList.contains('expand')) highlightShrinkFn(currentElement, btn)
+      else if (btn.classList.contains('copy-button')) highlightCopyFn(currentElement, btn)
+      else if (btn.classList.contains('fullpage-button')) codeFullpage(currentElement, btn)
     }
 
-    const expandCode = e => e.currentTarget.classList.toggle('expand-done')
+    const expandCode = e => {
+      const btn = e.currentTarget
+      const expanded = btn.classList.toggle('expand-done')
+      btn.setAttribute('aria-expanded', String(expanded))
+    }
 
     // 獲取隱藏狀態下元素的真實高度
     const getActualHeight = item => {
@@ -194,21 +279,40 @@ document.addEventListener('DOMContentLoaded', () => {
       return height
     }
 
-    const createEle = (lang, item) => {
+    const createEle = (langName, item) => {
       const fragment = document.createDocumentFragment()
 
       if (isShowTool) {
         const hlTools = document.createElement('div')
         hlTools.className = `highlight-tools ${highlightShrinkClass}`
-        hlTools.innerHTML = highlightMacStyleEle + highlightShrinkEle + lang + highlightCopyEle + highlightFullpageEle
+        if (highlightMacStyle) hlTools.appendChild(createMacStyleNode())
+        if (isHighlightShrink !== undefined) {
+          hlTools.appendChild(createIconButton('expand', '折叠或展开代码块', 'fas fa-angle-down', {
+            'aria-expanded': String(isHighlightShrink !== true)
+          }))
+        }
+        if (langName) {
+          const langEl = document.createElement('div')
+          langEl.className = 'code-lang'
+          langEl.textContent = langName
+          hlTools.appendChild(langEl)
+        }
+        if (highlightCopy) {
+          hlTools.appendChild(createIconButton('copy-button', '复制代码', 'fas fa-paste'))
+        }
+        if (highlightFullpage) {
+          hlTools.appendChild(createIconButton('fullpage-button', '全屏查看代码', 'fa-solid fa-up-right-and-down-left-from-center', {
+            'aria-pressed': 'false'
+          }))
+        }
         btf.addEventListenerPjax(hlTools, 'click', highlightToolsFn)
         fragment.appendChild(hlTools)
       }
 
       if (highlightHeightLimit && getActualHeight(item) > highlightHeightLimit + 30) {
-        const ele = document.createElement('div')
-        ele.className = 'code-expand-btn'
-        ele.innerHTML = '<i class="fas fa-angle-double-down"></i>'
+        const ele = createIconButton('code-expand-btn', '展开或收起代码块', 'fas fa-angle-double-down', {
+          'aria-expanded': 'false'
+        })
         btf.addEventListenerPjax(ele, 'click', expandCode)
         fragment.appendChild(ele)
       }
@@ -234,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
         langName = item.getAttribute('class').split(' ')[1]
         if (langName === 'plain' || langName === undefined) langName = 'Code'
       }
-      createEle(`<div class="code-lang">${langName}</div>`, item)
+      createEle(langName, item)
     })
   }
 
@@ -324,7 +428,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load more button
     const addLoadMoreButton = container => {
       const button = document.createElement('button')
-      button.innerHTML = `${GLOBAL_CONFIG.infinitegrid.buttonText}<i class="fa-solid fa-arrow-down"></i>`
+      button.append(GLOBAL_CONFIG.infinitegrid.buttonText)
+      const arrowIcon = document.createElement('i')
+      arrowIcon.className = 'fa-solid fa-arrow-down'
+      arrowIcon.setAttribute('aria-hidden', 'true')
+      button.appendChild(arrowIcon)
 
       button.addEventListener('click', () => {
         button.remove()
@@ -569,7 +677,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!isToc) return
 
-      if (activeTocItem) activeTocItem.classList.remove('active')
+      if (activeTocItem) {
+        activeTocItem.classList.remove('active')
+        activeTocItem.removeAttribute('aria-current')
+      }
       activeParentItems.forEach(i => i.classList.remove('active'))
       activeParentItems = []
 
@@ -587,6 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!targetLink) return
 
       targetLink.classList.add('active')
+      targetLink.setAttribute('aria-current', 'true')
       activeTocItem = targetLink
       setTimeout(() => autoScrollToc(targetLink), 0)
 
@@ -602,27 +714,48 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Keep the legacy 80px activation boundary instead of expanding early.
+    // IntersectionObserver-driven Scrollspy maintaining the 80px boundary without per-frame layout queries.
     let detectedId = ''
 
-    const scrollHandler = btf.rafThrottle(() => {
-      const currentTop = window.scrollY || document.documentElement.scrollTop
-
-      if (isToc && GLOBAL_CONFIG.percent.toc) {
-        $tocPercentage.textContent = btf.getScrollPercent(currentTop, $article)
-      }
-
+    const syncActiveHeading = () => {
       let currentId = ''
-      $articleList.forEach(heading => {
-        if (currentTop > btf.getEleTop(heading) - 80) currentId = heading.id
-      })
+      for (const heading of $articleList) {
+        const rect = heading.getBoundingClientRect()
+        if (rect.width === 0 && rect.height === 0) continue
+        if (rect.top <= 84) {
+          currentId = heading.id
+        } else {
+          break
+        }
+      }
       if (currentId !== detectedId) {
         detectedId = currentId
         updateTocUI(currentId)
       }
-    })
+    }
 
-    btf.addEventListenerPjax(window, 'scroll', scrollHandler, { passive: true })
+    if ('IntersectionObserver' in window) {
+      const headingObserver = new IntersectionObserver(syncActiveHeading, {
+        rootMargin: '-80px 0px 0px 0px',
+        threshold: [0, 1]
+      })
+      $articleList.forEach(heading => headingObserver.observe(heading))
+      btf.addGlobalFn('pjaxCompleteOnce', () => headingObserver.disconnect(), 'disconnectTocObserver')
+      if ('onscrollend' in window) {
+        btf.addEventListenerPjax(window, 'scrollend', syncActiveHeading, { passive: true })
+      }
+    }
+
+    syncActiveHeading()
+
+    if (isToc && GLOBAL_CONFIG.percent.toc) {
+      const updateTocPercent = btf.rafThrottle(() => {
+        const currentTop = window.scrollY || document.documentElement.scrollTop
+        $tocPercentage.textContent = btf.getScrollPercent(currentTop, $article)
+      })
+      btf.addEventListenerPjax(window, 'scroll', updateTocPercent, { passive: true })
+      updateTocPercent()
+    }
 
   }
 
@@ -660,7 +793,10 @@ document.addEventListener('DOMContentLoaded', () => {
       $body.classList.add('read-mode')
       newEle.type = 'button'
       newEle.className = 'exit-readmode'
-      newEle.innerHTML = '<i class="fas fa-sign-out-alt"></i>'
+      const exitIcon = document.createElement('i')
+      exitIcon.className = 'fas fa-sign-out-alt'
+      exitIcon.setAttribute('aria-hidden', 'true')
+      newEle.appendChild(exitIcon)
       newEle.addEventListener('click', exitReadMode)
       $body.appendChild(newEle)
     },
@@ -805,8 +941,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!$table.length) return
 
     $table.forEach(item => {
-      if (!item.closest('.highlight')) {
-        btf.wrap(item, 'div', { class: 'table-wrap' })
+      if (item.closest('.highlight')) return
+      const existingWrap = item.parentElement && item.parentElement.classList.contains('table-wrap')
+        ? item.parentElement
+        : null
+      if (existingWrap) {
+        if (!existingWrap.hasAttribute('tabindex')) existingWrap.setAttribute('tabindex', '0')
+        if (!existingWrap.hasAttribute('role')) existingWrap.setAttribute('role', 'region')
+        if (!existingWrap.hasAttribute('aria-label')) existingWrap.setAttribute('aria-label', '数据表格')
+      } else {
+        btf.wrap(item, 'div', {
+          class: 'table-wrap',
+          tabindex: '0',
+          role: 'region',
+          'aria-label': '数据表格'
+        })
       }
     })
   }
